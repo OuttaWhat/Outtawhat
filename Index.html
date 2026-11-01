@@ -1,4 +1,4 @@
-<img src="outta-what-logo.jpeg" alt="Outta What logo" style="width:100%;max-width:320px;height:auto;display:block;margin:0 auto;">
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,202 +12,193 @@
       --black: #101010;
       --white: #fffdf7;
     }
-
     * { box-sizing: border-box; }
-
     body {
-      margin: 0;
-      background: var(--black);
-      color: var(--white);
-      font-family: Arial, Helvetica, sans-serif;
-      text-align: center;
+      margin: 0; background: var(--black); color: var(--white);
+      font-family: Arial, Helvetica, sans-serif; text-align: center;
     }
-
-    header {
-      padding: 28px 16px;
-      border-bottom: 1px solid #39352a;
-    }
-
-    .logo {
-      display: inline-block;
-      border: 3px solid var(--gold);
-      border-radius: 16px;
-      padding: 12px 18px;
-      font-size: 25px;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    .logo span { color: var(--gold); }
-
-    main {
-      width: min(100% - 32px, 760px);
+    header { padding: 28px 16px; border-bottom: 1px solid #39352a; }
+    .brand-logo {
+      display: block; width: 100%; max-width: 320px; height: auto;
       margin: 0 auto;
-      padding: 65px 0;
     }
-
+    main { width: min(100% - 32px, 620px); margin: 0 auto; padding: 42px 0 60px; }
     .eyebrow {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
-      font-weight: bold;
+      color: var(--gold); text-transform: uppercase; letter-spacing: 3px;
+      font-size: 12px; font-weight: bold;
     }
-
-    h1 {
-      font-size: clamp(42px, 10vw, 76px);
-      line-height: 1;
-      margin: 22px 0;
+    h1 { font-size: clamp(42px, 10vw, 70px); line-height: 1.05; margin: 22px 0; }
+    h1 span, .slogan span { color: var(--gold); }
+    .intro { color: #d0cec7; font-size: 18px; line-height: 1.6; }
+    .timer { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 30px 0; }
+    .unit { border: 1px solid #4d4635; border-radius: 12px; padding: 16px 3px; background: #1a1916; }
+    .number { display: block; font-size: clamp(22px, 6vw, 38px); font-weight: 800; color: var(--gold); }
+    .label { font-size: 10px; letter-spacing: 1px; color: #ccc5b4; }
+    .slogan { margin: 30px 0; font-size: 17px; font-weight: bold; line-height: 1.8; }
+    .panel {
+      margin: 32px 0; padding: 24px 18px; text-align: left;
+      background: #191815; border: 1px solid #4d4635; border-radius: 16px;
     }
-
-    h1 span { color: var(--gold); }
-
-    .intro {
-      color: #d0cec7;
-      font-size: 18px;
-      line-height: 1.6;
+    .panel h2 { text-align: center; margin-top: 0; }
+    .panel p { color: #d0cec7; line-height: 1.5; text-align: center; }
+    label { display: block; margin: 16px 0 7px; font-size: 14px; }
+    input {
+      display: block; width: 100%; min-height: 48px; padding: 12px;
+      border-radius: 8px; border: 1px solid #69604b;
+      background: #101010; color: white; font-size: 16px;
     }
-
-    .timer {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 9px;
-      margin: 38px 0;
+    button {
+      width: 100%; min-height: 50px; margin-top: 20px; padding: 12px;
+      border: 0; border-radius: 8px; background: var(--gold);
+      color: #101010; font-size: 16px; font-weight: bold;
     }
-
-    .unit {
-      border: 1px solid #4d4635;
-      border-radius: 12px;
-      padding: 18px 4px;
-      background: #1a1916;
-    }
-
-    .number {
-      display: block;
-      font-size: clamp(25px, 7vw, 42px);
-      font-weight: 800;
-      color: var(--gold);
-      font-variant-numeric: tabular-nums;
-    }
-
-    .label {
-      font-size: 10px;
-      letter-spacing: 1px;
-      color: #ccc5b4;
-    }
-
-    .slogan {
-      margin: 34px 0;
-      font-size: 17px;
-      font-weight: bold;
-      line-height: 1.8;
-    }
-
-    .slogan span { color: var(--gold); }
-
-    .note {
-      color: #aaa69b;
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    footer {
-      padding: 25px 16px;
-      border-top: 1px solid #39352a;
-      color: #aaa69b;
-      font-size: 12px;
-    }
+    button:disabled { opacity: .6; }
+    .note { color: #aaa69b; font-size: 13px; line-height: 1.6; }
+    #form-message { overflow-wrap: anywhere; }
+    footer { padding: 25px 16px; border-top: 1px solid #39352a; color: #aaa69b; font-size: 12px; }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">OUTTA <span>WHAT?</span></div>
+    <img class="brand-logo" src="outta-what-logo.jpeg" alt="Outta What logo">
   </header>
 
   <main>
     <p class="eyebrow">The first 10,000</p>
     <h1>Be part of<br><span>what's next.</span></h1>
-
     <p class="intro">
       Real food. Real people. Real impact.<br>
       Join the movement from the very beginning.
     </p>
 
     <p class="eyebrow">Launch countdown</p>
-
     <div class="timer" aria-label="Time until launch">
-      <div class="unit">
-        <span class="number" id="days">000</span>
-        <span class="label">DAYS</span>
-      </div>
-      <div class="unit">
-        <span class="number" id="hours">00</span>
-        <span class="label">HOURS</span>
-      </div>
-      <div class="unit">
-        <span class="number" id="minutes">00</span>
-        <span class="label">MINUTES</span>
-      </div>
-      <div class="unit">
-        <span class="number" id="seconds">00</span>
-        <span class="label">SECONDS</span>
-      </div>
+      <div class="unit"><span class="number" id="days">000</span><span class="label">DAYS</span></div>
+      <div class="unit"><span class="number" id="hours">00</span><span class="label">HOURS</span></div>
+      <div class="unit"><span class="number" id="minutes">00</span><span class="label">MINUTES</span></div>
+      <div class="unit"><span class="number" id="seconds">00</span><span class="label">SECONDS</span></div>
     </div>
 
-    <p id="launch-message" class="intro">
-      Something real is coming.
-    </p>
+    <p id="launch-message" class="intro">Something real is coming.</p>
 
     <p class="slogan">
-      <span>REAL FOOD</span><br>
-      REAL PEOPLE<br>
-      <span>REAL IMPACT</span>
+      <span>REAL FOOD</span><br>REAL PEOPLE<br><span>REAL IMPACT</span>
     </p>
 
+    <section class="panel" id="signup">
+      <h2>Become a Founding Member</h2>
+      <p>Join the Outta What community. Confirm your email to complete registration.</p>
+
+      <form id="signup-form">
+        <label for="full-name">Your name</label>
+        <input id="full-name" name="full-name" autocomplete="name"
+          maxlength="100" required>
+
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="email"
+          maxlength="254" required>
+
+        <label for="password">Create a password</label>
+        <input id="password" name="password" type="password"
+          autocomplete="new-password" minlength="8" required
+          aria-describedby="password-help">
+        <p id="password-help" class="note">Use at least 8 characters. Never reuse an important password.</p>
+
+        <button id="signup-button" type="submit">Sign Up</button>
+        <p id="form-message" class="note" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
     <p class="note">
-      Our founding-member registration and verified member
-      counter will appear here once connected securely.
+      A founding-member number is not reserved until your email is verified
+      and the registration system confirms eligibility. Membership is limited
+      to 10,000 verified members.
     </p>
   </main>
 
-  <footer>
-    Outta What? &copy; 2026. Real food. Real people. Real impact.
-  </footer>
+  <footer>Outta What? &copy; 2026. Real food. Real people. Real impact.</footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    // January 8, 2027 at 12:00 AM Central Standard Time.
-    // A fixed date: refreshing the page never resets the clock.
+    const SUPABASE_URL = "https://ccmjmzprlsozrignttbs.supabase.co";
+    const SUPABASE_PUBLISHABLE_KEY = "PASTE_YOUR_PUBLISHABLE_KEY_HERE";
+
     const launchDate = new Date("2027-01-08T00:00:00-06:00").getTime();
 
     function updateCountdown() {
       const remaining = launchDate - Date.now();
-
       if (remaining <= 0) {
         ["days", "hours", "minutes", "seconds"].forEach(id => {
           document.getElementById(id).textContent = "00";
         });
-        document.getElementById("launch-message").textContent =
-          "Launch day is here!";
+        document.getElementById("launch-message").textContent = "Launch day is here!";
         return;
       }
-
-      const days = Math.floor(remaining / 86400000);
-      const hours = Math.floor((remaining % 86400000) / 3600000);
-      const minutes = Math.floor((remaining % 3600000) / 60000);
-      const seconds = Math.floor((remaining % 60000) / 1000);
-
       document.getElementById("days").textContent =
-        String(days).padStart(3, "0");
+        String(Math.floor(remaining / 86400000)).padStart(3, "0");
       document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
+        String(Math.floor((remaining % 86400000) / 3600000)).padStart(2, "0");
       document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
+        String(Math.floor((remaining % 3600000) / 60000)).padStart(2, "0");
       document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
+        String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0");
     }
-
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    const form = document.getElementById("signup-form");
+    const button = document.getElementById("signup-button");
+    const message = document.getElementById("form-message");
+
+    if (!window.supabase || SUPABASE_PUBLISHABLE_KEY === "PASTE_YOUR_PUBLISHABLE_KEY_HERE") {
+      button.disabled = true;
+      message.textContent = "Registration is being configured. Please check back soon.";
+    } else {
+      const client = window.supabase.createClient(
+        SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY
+      );
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        message.textContent = "";
+        button.disabled = true;
+        button.textContent = "Submitting…";
+
+        const fullName = document.getElementById("full-name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+
+        try {
+          const { data, error } = await client.auth.signUp({
+            email,
+            password,
+            options: {
+              data: { full_name: fullName },
+              emailRedirectTo: window.location.origin
+            }
+          });
+
+          if (error) throw error;
+
+          if (data.session) {
+            message.textContent =
+              "Your account was created. Please check your account status before registering again.";
+          } else {
+            message.textContent =
+              "If this address can be registered, check your inbox for a confirmation email. Confirm your email to continue.";
+            form.reset();
+          }
+        } catch (error) {
+          console.error("Sign-up error:", error);
+          message.textContent =
+            "We couldn't complete sign-up. Check your details and try again. If the problem continues, contact the site team.";
+        } finally {
+          button.disabled = false;
+          button.textContent = "Sign Up";
+        }
+      });
+    }
   </script>
 </body>
 </html>
+
