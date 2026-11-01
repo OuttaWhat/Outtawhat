@@ -1,469 +1,500 @@
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080808">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101010">
+<title>Outta What? — Founding Members</title>
 
-  <title>Outta What? | Founding Members</title>
-  <meta name="description" content="Real food. Real people. Real impact. Join the Outta What founding community.">
+<style>
+:root {
+  --gold: #d6b45a;
+  --black: #101010;
+  --white: #fffdf7;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+* { box-sizing: border-box; }
 
-    :root {
-      --black: #080808;
-      --panel: #171717;
-      --gold: #d6ad55;
-      --gold-light: #f4d88e;
-      --white: #ffffff;
-      --muted: #c3c3c3;
-    }
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
 
-    body {
-      margin: 0;
-      background: var(--black);
-      color: var(--white);
-      font-family: Arial, Helvetica, sans-serif;
-      text-align: center;
-    }
+header {
+  padding: 24px 16px;
+  border-bottom: 1px solid #39352a;
+}
 
-    header {
-      padding: 35px 18px 15px;
-    }
+.logo {
+  width: min(230px, 65vw);
+  height: auto;
+  object-fit: contain;
+}
 
-    .logo {
-      display: block;
-      width: min(290px, 85%);
-      max-height: 230px;
-      object-fit: contain;
-      margin: 0 auto 18px;
-    }
+main {
+  width: min(100% - 32px, 680px);
+  margin: auto;
+  padding: 45px 0;
+}
 
-    .logo-fallback {
-      display: none;
-      color: var(--gold);
-      font-size: 42px;
-      font-weight: 900;
-      margin-bottom: 15px;
-    }
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
 
-    .tagline {
-      color: var(--gold);
-      font-weight: bold;
-      letter-spacing: 2px;
-      font-size: 13px;
-    }
+h1 {
+  font-size: clamp(42px, 10vw, 72px);
+  line-height: 1;
+  margin: 22px 0;
+}
 
-    main {
-      width: min(100% - 32px, 540px);
-      margin: 25px auto 50px;
-    }
+h1 span, .gold { color: var(--gold); }
 
-    h1 {
-      color: var(--gold-light);
-      font-size: clamp(30px, 7vw, 46px);
-      line-height: 1.15;
-    }
+.intro {
+  color: #d0cec7;
+  font-size: 18px;
+  line-height: 1.6;
+}
 
-    .intro {
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.7;
-    }
+.timer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+  margin: 30px 0;
+}
 
-    .panel {
-      margin-top: 28px;
-      padding: 25px 20px;
-      background: var(--panel);
-      border: 1px solid #51452d;
-      border-radius: 17px;
-    }
+.unit {
+  border: 1px solid #4d4635;
+  border-radius: 12px;
+  padding: 16px 3px;
+  background: #1a1916;
+}
 
-    h2 {
-      color: var(--gold-light);
-      font-size: 23px;
-      margin-top: 0;
-    }
+.number {
+  display: block;
+  font-size: clamp(24px, 7vw, 40px);
+  font-weight: 800;
+  color: var(--gold);
+}
 
-    .countdown {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-top: 20px;
-    }
+.label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #ccc5b4;
+}
 
-    .time-box {
-      background: #242424;
-      border: 1px solid #484034;
-      border-radius: 10px;
-      padding: 14px 3px;
-    }
+.panel {
+  margin: 32px auto;
+  padding: 25px 20px;
+  border: 1px solid var(--gold);
+  border-radius: 16px;
+  background: #1a1916;
+}
 
-    .time-number {
-      display: block;
-      color: var(--gold-light);
-      font-size: clamp(23px, 6vw, 34px);
-      font-weight: bold;
-    }
+.panel h2 {
+  color: var(--gold);
+  font-size: 20px;
+  letter-spacing: 2px;
+}
 
-    .time-label {
-      color: var(--muted);
-      font-size: 10px;
-      text-transform: uppercase;
-    }
+input {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  margin: 14px 0;
+  border-radius: 8px;
+  border: 1px solid #766b4b;
+  background: #fffdf7;
+  color: #111;
+  font-size: 16px;
+}
 
-    .launch-date {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 18px;
-    }
+button {
+  width: 100%;
+  padding: 17px;
+  margin-top: 8px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--gold);
+  color: #111;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+}
 
-    form {
-      text-align: left;
-    }
+button:disabled {
+  opacity: .6;
+}
 
-    label {
-      display: block;
-      margin: 17px 0 7px;
-      font-weight: bold;
-      font-size: 14px;
-    }
+.message {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--gold);
+  overflow-wrap: anywhere;
+}
 
-    input {
-      width: 100%;
-      padding: 15px;
-      background: #090909;
-      color: white;
-      border: 1px solid #665a40;
-      border-radius: 9px;
-      font-size: 16px;
-    }
+.member-count {
+  font-size: clamp(40px, 9vw, 58px);
+  font-weight: 900;
+  margin: 12px 0;
+}
 
-    input:focus {
-      outline: 2px solid var(--gold);
-    }
+.progress-track {
+  height: 12px;
+  background: #39352a;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 18px 0 10px;
+}
 
-    button {
-      width: 100%;
-      padding: 17px;
-      margin-top: 23px;
-      border: none;
-      border-radius: 9px;
-      background: var(--gold);
-      color: #080808;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--gold);
+  transition: width .4s ease;
+}
 
-    button:disabled {
-      opacity: .6;
-      cursor: wait;
-    }
+.note {
+  color: #c9c2b2;
+  font-size: 13px;
+  line-height: 1.5;
+}
 
-    #message {
-      display: none;
-      margin-top: 18px;
-      padding: 14px;
-      border-radius: 9px;
-      font-size: 14px;
-      line-height: 1.6;
-      overflow-wrap: anywhere;
-    }
+.slogan {
+  margin: 38px 0;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 1.8;
+}
 
-    #message.success {
-      display: block;
-      background: #142516;
-      border: 1px solid #47734b;
-      color: #d9f5d9;
-    }
-
-    #message.error {
-      display: block;
-      background: #291515;
-      border: 1px solid #884444;
-      color: #ffdada;
-    }
-
-    .small-note {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.6;
-      text-align: center;
-      margin-top: 17px;
-    }
-
-    footer {
-      padding: 25px 15px 40px;
-      color: #999;
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    footer strong {
-      color: var(--gold);
-    }
-  </style>
+footer {
+  padding: 25px 16px;
+  border-top: 1px solid #39352a;
+  color: #aaa69b;
+  font-size: 12px;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <img
-      class="logo"
-      src="./outta-what-logo.jpeg"
-      alt="Outta What logo"
-      onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"
+<header>
+  <img
+    class="logo"
+    src="outta-what-logo.jpeg"
+    alt="Outta What? Logo"
+  >
+</header>
+
+<main>
+
+<p class="eyebrow">The first 10,000</p>
+
+<h1>
+Be part of<br>
+<span>what's next.</span>
+</h1>
+
+<p class="intro">
+Real food. Real people. Real impact.<br>
+Join the movement from the very beginning.
+</p>
+
+<p class="eyebrow">Our launch countdown</p>
+
+<div class="timer">
+  <div class="unit">
+    <span class="number" id="days">000</span>
+    <span class="label">DAYS</span>
+  </div>
+  <div class="unit">
+    <span class="number" id="hours">00</span>
+    <span class="label">HOURS</span>
+  </div>
+  <div class="unit">
+    <span class="number" id="minutes">00</span>
+    <span class="label">MINUTES</span>
+  </div>
+  <div class="unit">
+    <span class="number" id="seconds">00</span>
+    <span class="label">SECONDS</span>
+  </div>
+</div>
+
+<p id="launch-message" class="intro">
+Something real is coming.
+</p>
+
+<!-- SIGNUP FORM -->
+
+<section class="panel">
+  <p class="eyebrow">Your place in history starts here</p>
+  <h2>JOIN THE FIRST 10,000</h2>
+
+  <p class="note">
+    Become an Outta What? founding member.
+    Sign up and verify your email to receive your
+    founding-member number.
+  </p>
+
+  <form id="signup-form">
+
+    <input
+      type="email"
+      id="email"
+      placeholder="Your email address"
+      autocomplete="email"
+      required
     >
 
-    <div id="logo-fallback" class="logo-fallback">
-      OUTTA WHAT?
-    </div>
+    <input
+      type="password"
+      id="password"
+      placeholder="Create a password"
+      autocomplete="new-password"
+      minlength="6"
+      required
+    >
 
-    <p class="tagline">
-      REAL FOOD. REAL PEOPLE. REAL IMPACT.
-    </p>
-  </header>
+    <button type="submit" id="signup-button">
+      BECOME A FOUNDING MEMBER
+    </button>
 
-  <main>
+  </form>
 
-    <h1>Be Part of Something Real.</h1>
+  <p class="message" id="signup-message" aria-live="polite"></p>
 
-    <p class="intro">
-      The Outta What? community is coming.
-      Join us as we build something meaningful together.
-      Be among the first 10,000 founding members.
-    </p>
+  <p class="note">
+    You'll receive an email verification link.
+    Your member number is assigned after verification.
+  </p>
+</section>
 
-    <section class="panel">
-      <h2>Our Launch Countdown</h2>
+<!-- VERIFIED MEMBER TRACKER -->
 
-      <div class="countdown">
-        <div class="time-box">
-          <span class="time-number" id="days">---</span>
-          <span class="time-label">Days</span>
-        </div>
+<section class="panel" aria-live="polite">
 
-        <div class="time-box">
-          <span class="time-number" id="hours">--</span>
-          <span class="time-label">Hours</span>
-        </div>
+  <p class="eyebrow">The movement is growing</p>
 
-        <div class="time-box">
-          <span class="time-number" id="minutes">--</span>
-          <span class="time-label">Minutes</span>
-        </div>
+  <h2>FOUNDING MEMBERS</h2>
 
-        <div class="time-box">
-          <span class="time-number" id="seconds">--</span>
-          <span class="time-label">Seconds</span>
-        </div>
-      </div>
+  <div class="member-count">
+    <span id="member-count">—</span>
+    <span style="font-size:18px">/ 10,000</span>
+  </div>
 
-      <p class="launch-date">
-        January 8, 2027 at 12:00 AM Central Standard Time
-      </p>
-    </section>
+  <p class="note" id="spots-remaining">
+    Loading verified member count...
+  </p>
 
-    <section class="panel">
+  <div class="progress-track"
+       role="progressbar"
+       aria-label="Founding member goal"
+       aria-valuemin="0"
+       aria-valuemax="10000"
+       aria-valuenow="0"
+       id="member-progress">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
 
-      <h2>Become a Founding Member</h2>
+  <p class="note">
+    Only email-verified founding members count toward our goal.
+  </p>
 
-      <p class="intro">
-        Join the Outta What community.
-        Confirm your email to complete registration.
-      </p>
+</section>
 
-      <form id="signup-form">
+<p class="slogan">
+<span class="gold">REAL FOOD</span><br>
+REAL PEOPLE<br>
+<span class="gold">REAL IMPACT</span>
+</p>
 
-        <label for="full-name">Your name</label>
-        <input
-          id="full-name"
-          type="text"
-          placeholder="Enter your full name"
-          autocomplete="name"
-          maxlength="100"
-          required
-        >
+</main>
 
-        <label for="email">Email address</label>
-        <input
-          id="email"
-          type="email"
-          placeholder="Enter your email"
-          autocomplete="email"
-          maxlength="254"
-          required
-        >
+<footer>
+Outta What? &copy; 2026.
+Real food. Real people. Real impact.
+</footer>
 
-        <label for="password">Create a password</label>
-        <input
-          id="password"
-          type="password"
-          placeholder="At least 8 characters"
-          autocomplete="new-password"
-          minlength="8"
-          required
-        >
+<script>
 
-        <button id="signup-button" type="submit">
-          Sign Up
-        </button>
+// SUPABASE CONNECTION
 
-        <div id="message" role="status" aria-live="polite"></div>
+const SUPABASE_URL =
+  "https://ccmjmzprlsozrignttbs.supabase.co";
 
-        <p class="small-note">
-          A founding-member number is not reserved until your
-          email is verified and the registration system confirms
-          your eligibility.
-        </p>
+const SUPABASE_KEY =
+  "sb_publishable_3ruRpcdeojLycEgoCGKXsA_kALRhCB0";
 
-      </form>
-    </section>
+// LAUNCH COUNTDOWN
+// January 8, 2027 at midnight Central Standard Time.
 
-  </main>
+const launchDate =
+  new Date("2027-01-08T00:00:00-06:00").getTime();
 
-  <footer>
-    <strong>OUTTA WHAT?</strong><br>
-    Real food. Real people. Real impact.<br>
-    Building something better, together.
-  </footer>
+function updateCountdown() {
+  const remaining = launchDate - Date.now();
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-  <script>
-    // OUTTA WHAT SUPABASE CONNECTION
-
-    const SUPABASE_URL =
-      "https://ccmjmzprlsozrignttbs.supabase.co";
-
-    const SUPABASE_PUBLISHABLE_KEY =
-      "sb_publishable_3ruRpcdeojLycEgoCGKXsA_kALRhCB0";
-
-    // Launch date: January 8, 2027 at midnight CST.
-
-    const launchDate = new Date("2027-01-08T06:00:00Z");
-
-    function updateCountdown() {
-      const difference = Math.max(
-        0,
-        launchDate.getTime() - Date.now()
-      );
-
-      document.getElementById("days").textContent =
-        Math.floor(difference / 86400000);
-
-      document.getElementById("hours").textContent =
-        String(Math.floor((difference % 86400000) / 3600000)).padStart(2, "0");
-
-      document.getElementById("minutes").textContent =
-        String(Math.floor((difference % 3600000) / 60000)).padStart(2, "0");
-
-      document.getElementById("seconds").textContent =
-        String(Math.floor((difference % 60000) / 1000)).padStart(2, "0");
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    // CONNECT TO SUPABASE
-
-    const supabaseClient =
-      window.supabase &&
-      window.supabase.createClient
-        ? window.supabase.createClient(
-            SUPABASE_URL,
-            SUPABASE_PUBLISHABLE_KEY
-          )
-        : null;
-
-    const form = document.getElementById("signup-form");
-    const button = document.getElementById("signup-button");
-    const message = document.getElementById("message");
-
-    function showMessage(text, type) {
-      message.textContent = text;
-      message.className = type;
-    }
-
-    // FOUNDING MEMBER REGISTRATION
-
-    form.addEventListener("submit", async function(event) {
-      event.preventDefault();
-
-      if (!supabaseClient) {
-        showMessage(
-          "The registration connection could not load. Please refresh the website and try again.",
-          "error"
-        );
-        return;
-      }
-
-      const fullName =
-        document.getElementById("full-name").value.trim();
-
-      const email =
-        document.getElementById("email").value.trim();
-
-      const password =
-        document.getElementById("password").value;
-
-      if (!fullName || !email || password.length < 8) {
-        showMessage(
-          "Please enter your name, a valid email address, and a password with at least 8 characters.",
-          "error"
-        );
-        return;
-      }
-
-      button.disabled = true;
-      button.textContent = "Creating your account...";
-
-      message.className = "";
-
-      try {
-        const { data, error } =
-          await supabaseClient.auth.signUp({
-            email: email,
-            password: password,
-            options: {
-              data: {
-                full_name: fullName
-              },
-              emailRedirectTo: window.location.origin
-            }
-          });
-
-        if (error) {
-          throw error;
-        }
-
-        showMessage(
-          "Thank you for joining Outta What! If email confirmation is enabled, check your inbox for your confirmation email. Follow the link to complete registration.",
-          "success"
-        );
-
-        form.reset();
-
-      } catch (error) {
-        console.error("Registration error:", error);
-
-        showMessage(
-          "Registration could not be completed: " +
-          (error.message || "Please try again later."),
-          "error"
-        );
-
-      } finally {
-        button.disabled = false;
-        button.textContent = "Sign Up";
-      }
+  if (remaining <= 0) {
+    ["days", "hours", "minutes", "seconds"].forEach(id => {
+      document.getElementById(id).textContent = "00";
     });
-  </script>
+
+    document.getElementById("launch-message").textContent =
+      "Launch day is here!";
+
+    return;
+  }
+
+  document.getElementById("days").textContent =
+    String(Math.floor(remaining / 86400000)).padStart(3, "0");
+
+  document.getElementById("hours").textContent =
+    String(Math.floor((remaining % 86400000) / 3600000)).padStart(2, "0");
+
+  document.getElementById("minutes").textContent =
+    String(Math.floor((remaining % 3600000) / 60000)).padStart(2, "0");
+
+  document.getElementById("seconds").textContent =
+    String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+
+// FOUNDING MEMBER SIGNUP
+
+document.getElementById("signup-form").addEventListener("submit",
+async function(event) {
+
+  event.preventDefault();
+
+  const button = document.getElementById("signup-button");
+  const message = document.getElementById("signup-message");
+
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  button.disabled = true;
+  button.textContent = "PLEASE WAIT...";
+  message.textContent = "";
+
+  try {
+
+    const response = await fetch(
+      SUPABASE_URL + "/auth/v1/signup",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": SUPABASE_KEY
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(
+        result.msg || result.message ||
+        result.error_description ||
+        result.error ||
+        "Signup could not be completed."
+      );
+    }
+
+    message.textContent =
+      "SUCCESS! Check your email and click the verification link to confirm your membership.";
+
+    document.getElementById("signup-form").reset();
+
+  } catch (error) {
+
+    message.textContent = error.message;
+
+  } finally {
+
+    button.disabled = false;
+    button.textContent = "BECOME A FOUNDING MEMBER";
+
+  }
+
+});
+
+
+// PUBLIC VERIFIED MEMBER COUNT
+
+async function updateMemberCount() {
+
+  const countEl = document.getElementById("member-count");
+  const remainingEl = document.getElementById("spots-remaining");
+
+  try {
+
+    const response = await fetch(
+      SUPABASE_URL + "/rest/v1/rpc/get_public_member_count",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": SUPABASE_KEY,
+          "Authorization": "Bearer " + SUPABASE_KEY
+        },
+        body: "{}"
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Member count unavailable");
+    }
+
+    const result = await response.json();
+
+    const count = Math.max(
+      0,
+      Math.min(10000, Number(result) || 0)
+    );
+
+    const remaining = Math.max(0, 10000 - count);
+
+    countEl.textContent = count.toLocaleString("en-US");
+
+    remainingEl.textContent =
+      remaining.toLocaleString("en-US") +
+      " founding spots remaining";
+
+    document.getElementById("progress-fill").style.width =
+      (count / 10000 * 100) + "%";
+
+    document.getElementById("member-progress")
+      .setAttribute("aria-valuenow", String(count));
+
+  } catch (error) {
+
+    countEl.textContent = "—";
+    remainingEl.textContent =
+      "Member count temporarily unavailable.";
+
+    console.error(error);
+
+  }
+}
+
+updateMemberCount();
+setInterval(updateMemberCount, 30000);
+
+</script>
 
 </body>
 </html>
