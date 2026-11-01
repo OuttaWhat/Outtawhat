@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101010">
+  <title>Outta What? — Founding Members</title>
+  <style>
+    :root {
+      --gold: #d6b45a;
+      --black: #101010;
+      --white: #fffdf7;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+    }
+
+    header {
+      padding: 28px 16px;
+      border-bottom: 1px solid #39352a;
+    }
+
+    .logo {
+      display: inline-block;
+      border: 3px solid var(--gold);
+      border-radius: 16px;
+      padding: 12px 18px;
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span { color: var(--gold); }
+
+    main {
+      width: min(100% - 32px, 760px);
+      margin: 0 auto;
+      padding: 65px 0;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(42px, 10vw, 76px);
+      line-height: 1;
+      margin: 22px 0;
+    }
+
+    h1 span { color: var(--gold); }
+
+    .intro {
+      color: #d0cec7;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .timer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 9px;
+      margin: 38px 0;
+    }
+
+    .unit {
+      border: 1px solid #4d4635;
+      border-radius: 12px;
+      padding: 18px 4px;
+      background: #1a1916;
+    }
+
+    .number {
+      display: block;
+      font-size: clamp(25px, 7vw, 42px);
+      font-weight: 800;
+      color: var(--gold);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .label {
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: #ccc5b4;
+    }
+
+    .slogan {
+      margin: 34px 0;
+      font-size: 17px;
+      font-weight: bold;
+      line-height: 1.8;
+    }
+
+    .slogan span { color: var(--gold); }
+
+    .note {
+      color: #aaa69b;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 25px 16px;
+      border-top: 1px solid #39352a;
+      color: #aaa69b;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">OUTTA <span>WHAT?</span></div>
+  </header>
+
+  <main>
+    <p class="eyebrow">The first 10,000</p>
+    <h1>Be part of<br><span>what's next.</span></h1>
+
+    <p class="intro">
+      Real food. Real people. Real impact.<br>
+      Join the movement from the very beginning.
+    </p>
+
+    <p class="eyebrow">Launch countdown</p>
+
+    <div class="timer" aria-label="Time until launch">
+      <div class="unit">
+        <span class="number" id="days">000</span>
+        <span class="label">DAYS</span>
+      </div>
+      <div class="unit">
+        <span class="number" id="hours">00</span>
+        <span class="label">HOURS</span>
+      </div>
+      <div class="unit">
+        <span class="number" id="minutes">00</span>
+        <span class="label">MINUTES</span>
+      </div>
+      <div class="unit">
+        <span class="number" id="seconds">00</span>
+        <span class="label">SECONDS</span>
+      </div>
+    </div>
+
+    <p id="launch-message" class="intro">
+      Something real is coming.
+    </p>
+
+    <p class="slogan">
+      <span>REAL FOOD</span><br>
+      REAL PEOPLE<br>
+      <span>REAL IMPACT</span>
+    </p>
+
+    <p class="note">
+      Our founding-member registration and verified member
+      counter will appear here once connected securely.
+    </p>
+  </main>
+
+  <footer>
+    Outta What? &copy; 2026. Real food. Real people. Real impact.
+  </footer>
+
+  <script>
+    // January 8, 2027 at 12:00 AM Central Standard Time.
+    // A fixed date: refreshing the page never resets the clock.
+    const launchDate = new Date("2027-01-08T00:00:00-06:00").getTime();
+
+    function updateCountdown() {
+      const remaining = launchDate - Date.now();
+
+      if (remaining <= 0) {
+        ["days", "hours", "minutes", "seconds"].forEach(id => {
+          document.getElementById(id).textContent = "00";
+        });
+        document.getElementById("launch-message").textContent =
+          "Launch day is here!";
+        return;
+      }
+
+      const days = Math.floor(remaining / 86400000);
+      const hours = Math.floor((remaining % 86400000) / 3600000);
+      const minutes = Math.floor((remaining % 3600000) / 60000);
+      const seconds = Math.floor((remaining % 60000) / 1000);
+
+      document.getElementById("days").textContent =
+        String(days).padStart(3, "0");
+      document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+      document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+      document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
