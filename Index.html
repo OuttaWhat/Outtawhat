@@ -1,77 +1,556 @@
-<script>
-const SUPABASE_URL =
-  "https://ccmjmzprlsozrignttbs.supabase.co";
 
-const SUPABASE_ANON_KEY =
-  "sb_publishable_3ruRpcdeojLycEgoCGKXsA_kALRhCB0";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101010">
+  <title>Outta What? — Founding Members</title>
 
-document
-  .getElementById("signup-form")
-  .addEventListener("submit", async function(event) {
-
-    event.preventDefault();
-
-    const button = document.getElementById("signup-button");
-    const status = document.getElementById("signup-status");
-
-    const firstName =
-      document.getElementById("first-name").value.trim();
-
-    const lastName =
-      document.getElementById("last-name").value.trim();
-
-    const email =
-      document.getElementById("email").value.trim();
-
-    const password =
-      document.getElementById("password").value;
-
-    button.disabled = true;
-    button.textContent = "PLEASE WAIT...";
-    status.textContent = "Creating your registration...";
-
-    try {
-      const response = await fetch(
-        SUPABASE_URL + "/auth/v1/signup",
-        {
-          method: "POST",
-          headers: {
-            "apikey": SUPABASE_ANON_KEY,
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            email: email,
-            password: password,
-            data: {
-              first_name: firstName,
-              last_name: lastName,
-              full_name: firstName + " " + lastName
-            }
-          })
-        }
-      );
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(
-          result.msg ||
-          result.message ||
-          result.error_description ||
-          "Signup failed. Please try again."
-        );
-      }
-
-      status.textContent =
-        "You're almost there! Check your email and click the verification link to complete your registration.";
-
-      this.reset();
-
-    } catch (error) {
-      status.textContent = error.message;
+  <style>
+    :root {
+      --gold: #d6b45a;
+      --black: #101010;
+      --white: #fffdf7;
     }
 
-    button.disabled = false;
-    button.textContent = "JOIN THE FIRST 10,000";
-  });
-</script>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+    }
+
+    header {
+      padding: 28px 16px;
+      border-bottom: 1px solid #39352a;
+    }
+
+    .logo {
+      display: block;
+      width: min(270px, 75vw);
+      max-height: 130px;
+      object-fit: contain;
+      margin: auto;
+    }
+
+    main {
+      width: min(100% - 32px, 760px);
+      margin: 0 auto;
+      padding: 65px 0;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(42px, 10vw, 76px);
+      line-height: 1;
+      margin: 22px 0;
+    }
+
+    h1 span,
+    .slogan span {
+      color: var(--gold);
+    }
+
+    .intro {
+      color: #d0cec7;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .timer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 9px;
+      margin: 38px 0;
+    }
+
+    .unit {
+      border: 1px solid #4d4635;
+      border-radius: 12px;
+      padding: 18px 4px;
+      background: #1a1916;
+    }
+
+    .number {
+      display: block;
+      font-size: clamp(25px, 7vw, 42px);
+      font-weight: 800;
+      color: var(--gold);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .label {
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: #ccc5b4;
+    }
+
+    .slogan {
+      margin: 34px 0;
+      font-size: 17px;
+      font-weight: bold;
+      line-height: 1.8;
+    }
+
+    .panel {
+      margin: 35px 0;
+      padding: 25px 20px;
+      border: 1px solid #65552e;
+      border-radius: 16px;
+      background: #171613;
+      text-align: left;
+    }
+
+    .panel h2 {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .panel .sub {
+      text-align: center;
+      color: #c7c1b4;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 6px;
+      color: #eee7d7;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #65552e;
+      border-radius: 9px;
+      background: #0d0d0d;
+      color: white;
+      font-size: 16px;
+    }
+
+    input:focus {
+      outline: 2px solid var(--gold);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 15px;
+      border: 0;
+      border-radius: 9px;
+      background: var(--gold);
+      color: #111;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+    }
+
+    .status {
+      min-height: 22px;
+      margin-top: 14px;
+      text-align: center;
+      color: var(--gold);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .tracker {
+      margin: 32px 0;
+      padding: 22px 18px;
+      border: 1px solid #4d4635;
+      border-radius: 14px;
+      background: #1a1916;
+    }
+
+    .count {
+      color: var(--gold);
+      font-size: clamp(38px, 10vw, 58px);
+      font-weight: 900;
+    }
+
+    .track {
+      height: 13px;
+      margin: 14px 0 9px;
+      background: #39352a;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      width: 0%;
+      background: var(--gold);
+      border-radius: 20px;
+      transition: width 0.4s ease;
+    }
+
+    .note {
+      color: #aaa69b;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 25px 16px;
+      border-top: 1px solid #39352a;
+      color: #aaa69b;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img
+      class="logo"
+      src="outta-what-logo.jpeg"
+      alt="Outta What? Logo"
+    >
+  </header>
+
+  <main>
+
+    <p class="eyebrow">The first 10,000</p>
+
+    <h1>
+      Be part of<br>
+      <span>what's next.</span>
+    </h1>
+
+    <p class="intro">
+      Real food. Real people. Real impact.<br>
+      Join the movement from the very beginning.
+    </p>
+
+    <p class="eyebrow">Launch countdown</p>
+
+    <div class="timer" aria-label="Time until launch">
+
+      <div class="unit">
+        <span class="number" id="days">000</span>
+        <span class="label">DAYS</span>
+      </div>
+
+      <div class="unit">
+        <span class="number" id="hours">00</span>
+        <span class="label">HOURS</span>
+      </div>
+
+      <div class="unit">
+        <span class="number" id="minutes">00</span>
+        <span class="label">MINUTES</span>
+      </div>
+
+      <div class="unit">
+        <span class="number" id="seconds">00</span>
+        <span class="label">SECONDS</span>
+      </div>
+
+    </div>
+
+    <p id="launch-message" class="intro">
+      Something real is coming.
+    </p>
+
+    <section class="tracker">
+
+      <p class="eyebrow">Founding member tracker</p>
+
+      <div class="count">
+        <span id="member-count">—</span>
+        <span style="font-size:20px;color:#fffdf7">/ 10,000</span>
+      </div>
+
+      <div class="track">
+        <div class="fill" id="progress"></div>
+      </div>
+
+      <p class="note">
+        <span id="spots-left">Loading</span>
+        founding spots remaining
+      </p>
+
+    </section>
+
+    <section class="panel">
+
+      <h2>Become a founding member</h2>
+
+      <p class="sub">
+        Join the first 10,000 members.
+        Verify your email to complete registration.
+      </p>
+
+      <form id="signup-form">
+
+        <label for="first-name">First Name</label>
+        <input
+          id="first-name"
+          name="first_name"
+          type="text"
+          autocomplete="given-name"
+          required
+        >
+
+        <label for="last-name">Last Name</label>
+        <input
+          id="last-name"
+          name="last_name"
+          type="text"
+          autocomplete="family-name"
+          required
+        >
+
+        <label for="email">Email Address</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+        >
+
+        <label for="password">Create Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          autocomplete="new-password"
+          minlength="8"
+          required
+        >
+
+        <button id="signup-button" type="submit">
+          JOIN THE FIRST 10,000
+        </button>
+
+        <p id="signup-status" class="status" role="status"></p>
+
+      </form>
+
+    </section>
+
+    <p class="slogan">
+      <span>REAL FOOD</span><br>
+      REAL PEOPLE<br>
+      <span>REAL IMPACT</span>
+    </p>
+
+  </main>
+
+  <footer>
+    Outta What? &copy; 2026.
+    Real food. Real people. Real impact.
+  </footer>
+
+  <script>
+
+    const SUPABASE_URL =
+      "https://ccmjmzprlsozrignttbs.supabase.co";
+
+    const SUPABASE_ANON_KEY =
+      "sb_publishable_3ruRpcdeojLycEgoCGKXsA_kALRhCB0";
+
+    // January 8, 2027 at midnight Central Standard Time.
+    const launchDate =
+      new Date("2027-01-08T00:00:00-06:00").getTime();
+
+    function updateCountdown() {
+
+      const remaining = launchDate - Date.now();
+
+      if (remaining <= 0) {
+
+        ["days", "hours", "minutes", "seconds"].forEach(id => {
+          document.getElementById(id).textContent = "00";
+        });
+
+        document.getElementById("launch-message").textContent =
+          "Launch day is here!";
+
+        return;
+      }
+
+      const days = Math.floor(remaining / 86400000);
+      const hours = Math.floor((remaining % 86400000) / 3600000);
+      const minutes = Math.floor((remaining % 3600000) / 60000);
+      const seconds = Math.floor((remaining % 60000) / 1000);
+
+      document.getElementById("days").textContent =
+        String(days).padStart(3, "0");
+
+      document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+      document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+      document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+
+    // Public founding member count
+
+    async function updateMemberCount() {
+
+      try {
+
+        const response = await fetch(
+          SUPABASE_URL + "/rest/v1/rpc/get_public_member_count",
+          {
+            method: "POST",
+            headers: {
+              "apikey": SUPABASE_ANON_KEY,
+              "Authorization": "Bearer " + SUPABASE_ANON_KEY,
+              "Content-Type": "application/json"
+            },
+            body: "{}"
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Count unavailable");
+        }
+
+        const count = Math.max(0, Number(await response.json()) || 0);
+
+        document.getElementById("member-count").textContent =
+          count.toLocaleString();
+
+        document.getElementById("spots-left").textContent =
+          Math.max(0, 10000 - count).toLocaleString();
+
+        document.getElementById("progress").style.width =
+          Math.min(100, count / 10000 * 100) + "%";
+
+      } catch (error) {
+
+        document.getElementById("member-count").textContent = "—";
+
+        document.getElementById("spots-left").textContent =
+          "Member count temporarily unavailable";
+
+      }
+    }
+
+    updateMemberCount();
+    setInterval(updateMemberCount, 30000);
+
+
+    // Founding member registration
+
+    document
+      .getElementById("signup-form")
+      .addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+        const button =
+          document.getElementById("signup-button");
+
+        const status =
+          document.getElementById("signup-status");
+
+        const firstName =
+          document.getElementById("first-name").value.trim();
+
+        const lastName =
+          document.getElementById("last-name").value.trim();
+
+        const email =
+          document.getElementById("email").value.trim();
+
+        const password =
+          document.getElementById("password").value;
+
+        button.disabled = true;
+        button.textContent = "PLEASE WAIT...";
+
+        status.textContent = "Creating your registration...";
+
+        try {
+
+          const response = await fetch(
+            SUPABASE_URL + "/auth/v1/signup",
+            {
+              method: "POST",
+
+              headers: {
+                "apikey": SUPABASE_ANON_KEY,
+                "Content-Type": "application/json"
+              },
+
+              body: JSON.stringify({
+
+                email: email,
+                password: password,
+
+                data: {
+                  first_name: firstName,
+                  last_name: lastName,
+                  full_name: firstName + " " + lastName
+                }
+
+              })
+            }
+          );
+
+          const result = await response.json();
+
+          if (!response.ok) {
+
+            throw new Error(
+              result.msg ||
+              result.message ||
+              result.error_description ||
+              "Signup failed. Please try again."
+            );
+
+          }
+
+          status.textContent =
+            "You're almost there! Check your email and click the verification link to complete your registration.";
+
+          this.reset();
+
+        } catch (error) {
+
+          status.textContent =
+            error.message || "Please try again.";
+
+        } finally {
+
+          button.disabled = false;
+          button.textContent = "JOIN THE FIRST 10,000";
+
+        }
+
+      });
+
+  </script>
+
+</body>
+</html>
